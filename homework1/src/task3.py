@@ -1,3 +1,4 @@
+#Gets a number and returns sign in str
 def number_sign(num):
 
     if num > 0:
@@ -9,6 +10,7 @@ def number_sign(num):
     else:
         return "zero"
 
+#Puts the first ten prime numbers in list
 def ten_prime():
     prime = []
 
@@ -27,7 +29,8 @@ def ten_prime():
             break
     
     return prime
-                    
+
+#Gets the sum of 1 to 100                    
 def sum_100():
     sum = 0
     count = 1
@@ -37,3 +40,9 @@ def sum_100():
         count += 1
 
     return sum
+
+print("Ten is:", number_sign(10))
+print("Negative Ten is:", number_sign(-10))
+print("Zero is:", number_sign(0))
+print("First ten primes are:", ten_prime())
+print("Sum is:", sum_100())

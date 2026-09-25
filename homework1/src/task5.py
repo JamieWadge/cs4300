@@ -1,3 +1,5 @@
+#Creates list of books and splice first 3. Creates database of students
+
 favorite_books = [
     ("The Way of Kings", "Brandon Sanderson"),
     ("Words of Radiance", "Brandon Sanderson"),
@@ -12,3 +14,5 @@ student_database = {
     "Bob": "9000",
     "Alex": "1922"
 }
+
+print(student_database)
