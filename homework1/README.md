@@ -7,4 +7,4 @@ python3 -m pip install pytest
 
 # Run
 
-From homework1_directory
+From homework1 directory
