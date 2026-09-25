@@ -1,2 +1,3 @@
 #Display Hellow, World!
-print ("Hello, World!")
+def hello_world():
+    print ("Hello, World!")
