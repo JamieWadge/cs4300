@@ -22,10 +22,10 @@ def ten_prime():
                 break
 
         if is_prime:
-            primes.append(number)
+            prime.append(number)
 
         if len(prime) == 10:
-            number = 100
+            break
     
     return prime
                     
@@ -36,8 +36,6 @@ def sum_100():
     while count <= 100:
         sum += count
         count += 1
-    
-    print(sum)
 
     return sum
 
@@ -54,7 +52,7 @@ def test_sign():
         assert sign == "zero"
 
 def test_prime():
-    assert ten_prime == [2, 3, 5, 7, 11, 13, 17, 19, 23, 29]
+    assert ten_prime() == [2, 3, 5, 7, 11, 13, 17, 19, 23, 29]
 
 
 def test_100():
