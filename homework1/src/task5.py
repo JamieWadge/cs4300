@@ -3,7 +3,8 @@
 favorite_books = [
     ("The Way of Kings", "Brandon Sanderson"),
     ("Words of Radiance", "Brandon Sanderson"),
-    ("Oathbringer", "Brandon Sanderson")
+    ("Oathbringer", "Brandon Sanderson"),
+    ("Rythm of War", "Brandon Sanderson")
 ]
 
 first_three_books = favorite_books[:3]

@@ -1,17 +1,14 @@
+import pytest
 from src import task2
 
-#Tests if int
-def test_int():
-    assert isinstance(task2.num1, int)
+#Tests whether variable is int float str and bool for corresponding variable
 
-#Tests if float
-def test_float():
-    assert isinstance(task2.num2, float)
-
-#Tests if string
-def test_string():
-    assert isinstance(task2.string, str)
-
-#Tests if boolean
-def test_boolean():
-    assert isinstance(task2.boolean, bool)
+@pytest.mark.parametrize("value, type", [
+        (task2.num1, int),
+        (task2.num2, float),
+        (task2.string, str),
+        (task2.boolean, bool),
+    ],
+)
+def test_variable_has_expected_type(value, type):
+    assert isinstance(value, type)
