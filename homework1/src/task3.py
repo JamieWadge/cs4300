@@ -1,5 +1,4 @@
-def number_sign():
-    num = int(input("Enter a number: "))
+def number_sign(num):
 
     if num > 0:
         return "positive"
@@ -38,22 +37,3 @@ def sum_100():
         count += 1
 
     return sum
-
-def test_sign():
-    sign = number_sign()
-
-    if sign == "positive":
-        assert sign == "positive"
-    
-    elif sign == "negative":
-        assert sign == "negative"
-    
-    else:
-        assert sign == "zero"
-
-def test_prime():
-    assert ten_prime() == [2, 3, 5, 7, 11, 13, 17, 19, 23, 29]
-
-
-def test_100():
-    assert sum_100() == 5050

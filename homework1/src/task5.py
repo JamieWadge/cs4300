@@ -12,13 +12,3 @@ student_database = {
     "Bob": "9000",
     "Alex": "1922"
 }
-
-def test_books():
-    assert isinstance(favorite_books, list)
-
-def test_three_books():
-    assert isinstance(favorite_books, list)
-    assert len(first_three_books) == 3
-
-def test_database():
-    assert isinstance(student_database, dict)

@@ -4,6 +4,3 @@ def word_count(filename):
 
         removed_punctuation = text.replace(",", "").replace(".", "")
         return len(removed_punctuation.split())
-
-def test_count():
-    assert word_count("task6_read_me.txt") == 104
