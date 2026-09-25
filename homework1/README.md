@@ -8,3 +8,7 @@ python3 -m pip install pytest
 # Run
 
 From homework1 directory
+
+python src/task1.py #Change Number for corresponding task
+
+pytest #For Tests
