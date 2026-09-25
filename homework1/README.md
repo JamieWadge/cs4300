@@ -1,3 +1,16 @@
-To run the tests run "pytest" in console in base directory
+# Setup
+```python
+python3 -m venv homework1_env --system-site-packages
 
-To run the code "python filename.py" from src directory or "python src/task5.py" from base directory
+source homework1_env/bin/activate
+
+python3 -m pip install pytest
+```
+# Run
+```python
+From homework1 directory
+
+python src/task1.py #Change Number for corresponding task
+
+pytest #For Tests
+```
