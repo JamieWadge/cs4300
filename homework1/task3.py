@@ -11,9 +11,34 @@ def number_sign():
         return "zero"
 
 def ten_prime():
-    primes = []
+    prime = []
 
+    for number in range(2, 100):
+        is_prime = True
+
+        for i in range(2, int(number ** 0.5) + 1):
+            if number % i == 0:
+                is_prime = False
+                break
+
+        if is_prime:
+            primes.append(number)
+
+        if len(prime) = 10
     
+    return prime
+                    
+
+
+def sum_100():
+    sum = 0
+    count = 1
+
+    while count is <= 100:
+        sum += count
+        count += 1
+    
+    return sum
 
 def test_sign():
     sign = number_sign()
@@ -26,3 +51,9 @@ def test_sign():
     
     else:
         assert sign == "zero"
+
+def test_prime():
+
+
+def test_100():
+    assert sum_100 == 5050
