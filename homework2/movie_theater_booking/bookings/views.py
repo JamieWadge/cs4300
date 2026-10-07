@@ -1,3 +1,6 @@
 from django.shortcuts import render
 
-# Create your views here.
+class MovieViewSet(viewsets.ViewSet):
+    queryset = Movie.objects.all()
+    serializer = MovieSerializer
+    permission_classes = [IsAuthenticatedOrReadOnly]
