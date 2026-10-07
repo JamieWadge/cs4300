@@ -1,13 +1,13 @@
 from django.db import models
-from django.conf import setting
+from django.conf import settings
 
 class Movie(models.Model):
     title = models.CharField(max_length=200)
     description = models.TextField()
     release_date = models.DateField()
-    duration = PositiveIntegerField()
+    duration = models.PositiveIntegerField()
 
-    def__str__(self):
+    def __str__(self):
         return self.title
 
 class Seat(models.Model):
