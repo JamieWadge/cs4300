@@ -11,7 +11,6 @@ from rest_framework.response import Response
 
 class MovieViewSet(viewsets.ModelViewSet):
 """CRUD for movies. Anyone can read; only logged-in users can write."""
-    queryset = Movie.objects.all()
 
     queryset = Movie.objects.all()
     serializer_class = MovieSerializer
@@ -22,7 +21,7 @@ class SeatViewSet(viewsets.ModelViewSet):
 
     queryset = Seat.objects.all()
     serializer_class = SeatSerializer
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    permission_classes = [IsAuthenticatedOrReadOnly]
 
     @action(detail=True, methods=["post"], permission_classes=[IsAuthenticated])
     def book(self, request, pk=None):
