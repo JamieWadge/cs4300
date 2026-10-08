@@ -1,3 +1,4 @@
+from django.db import transaction
 from rest_framework import serializers
 from .models import Movie, Seat, Booking
 
@@ -14,21 +15,25 @@ class SeatSerializer(serializers.ModelSerializer):
 class BookingSerializer(serializers.ModelSerializer):
 
     class Meta:
-        model = booking
-        fields = ['id', 'moive', 'seat', 'user', 'booking_date']
-    
+        model = Booking
+        fields = ['id', 'movie', 'seat', 'user', 'booking_date']
+        read_only_fields = [ "user", "booking_date", ]
+
+    def validate_seat(self, seat): 
+        """ Prevent users from booking a seat that is already booked. """ 
+        
+        if seat.booking_status: 
+            raise serializers.ValidationError( "This seat is already booked." ) 
+        
+        return seat
+
     def create(self, validated_data):
-        request = self.context.get("request")
-        validated_data["user"] = request.user
-
-        seat = validated_data["seat"]
-
-        if seat.is_booked:
-            raise serializers.ValidationError(
-                {"seat": "This seat is already booked."}
-            )
-
-        seat.is_booked = True
-        seat.save()
-
-        return Booking.objects.create(**validated_data)
+        """Re-check under a row lock, mark the seat booked, then create the booking."""
+        with transaction.atomic():
+            seat = Seat.objects.select_for_update().get(pk=validated_data["seat"].pk)
+            if seat.booking_status:
+                raise serializers.ValidationError({"seat": "This seat is already booked."})
+            seat.booking_status = True
+            seat.save(update_fields=["booking_status"])
+            validated_data["seat"] = seat
+            return super().create(validated_data)
