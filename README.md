@@ -18,8 +18,6 @@ pytest #For Tests
 
 # Homework2
 
-# Movie Theater Booking
-
 **Render Site:** https://cs4300-4u52.onrender.com/
 
 **Admin Login:** username `admin`, password `1234` (or create your own account on the Create account page).
