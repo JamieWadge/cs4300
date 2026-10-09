@@ -59,10 +59,11 @@ homework2/movie_theater_booking/
 ```bash
 python -m venv myenv
 source myenv/bin/activate
+cd homework2/movie_theater_booking
 pip install -r requirements.txt
 python manage.py migrate
 python manage.py createsuperuser 
-python manage.py runserver 0.0.0.0:3000
+python manage.py runserver #If on DevEdu python manage.py runserver 0.0.0.0:3000
 ```
 
 ## API endpoints
