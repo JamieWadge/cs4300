@@ -65,7 +65,6 @@ python3 -m venv myenv --system-site-packages
 source myenv/bin/activate
 pip install -r requirements.txt
 python3 manage.py migrate
-python3 manage.py seed_data          # optional: sample seats and movies
 python3 manage.py createsuperuser    # optional: admin account
 python3 manage.py runserver 0.0.0.0:3000
 ```
