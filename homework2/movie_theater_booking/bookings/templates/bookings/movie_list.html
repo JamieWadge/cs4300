@@ -1,0 +1,23 @@
+{% extends 'bookings/base.html' %}
+{% block title %}Now showing{% endblock %}
+{% block content %}
+<h1 class="mb-4">Now showing</h1>
+<div class="row g-3">
+  {% for movie in movies %}
+  <div class="col-md-6 col-lg-4">
+    <div class="card h-100 shadow-sm">
+      <div class="card-body d-flex flex-column">
+        <h5 class="card-title">{{ movie.title }}</h5>
+        <p class="text-muted small mb-2">{{ movie.release_date|date:"M j, Y" }} &middot; {{ movie.duration }} min</p>
+        <p class="card-text">{{ movie.description }}</p>
+        <a href="{% url 'book_seat' movie.id %}" class="btn btn-primary mt-auto">Book seats</a>
+      </div>
+    </div>
+  </div>
+  {% empty %}
+  <div class="col-12">
+    <div class="alert alert-secondary">No movies are showing yet. Add some in the admin, or run <code>python manage.py seed_data</code>.</div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

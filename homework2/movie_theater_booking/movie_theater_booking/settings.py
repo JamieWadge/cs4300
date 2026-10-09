@@ -130,7 +130,7 @@ MAILERS = {
 }
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://app-snappyfalcon1394-28.lab.devedu.io',
+    'https://app-snappyfalcon1394-28.lab.devedu.io', 'https://*.devedu.io', 'https://*.onrender.com'
 ]
 
 LOGIN_URL = "login"
@@ -143,3 +143,5 @@ REST_FRAMEWORK = {
         "rest_framework.authentication.BasicAuthentication",    # curl / tests
     ],
 }
+
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")

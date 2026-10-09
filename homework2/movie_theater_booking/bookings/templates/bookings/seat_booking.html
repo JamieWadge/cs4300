@@ -1,0 +1,28 @@
+{% extends 'bookings/base.html' %}
+{% block title %}Book {{ movie.title }}{% endblock %}
+{% block content %}
+<h1>{{ movie.title }}</h1>
+<p class="text-muted">{{ movie.release_date|date:"M j, Y" }} &middot; {{ movie.duration }} min</p>
+
+<form method="post">
+  {% csrf_token %}
+  <div class="screen" aria-hidden="true"></div>
+  <p class="text-center text-muted small">Screen</p>
+
+  <div class="seat-grid mb-4" role="radiogroup" aria-label="Seats">
+    {% for seat in seats %}
+    <div>
+      <input type="radio" class="btn-check" name="seat" id="seat-{{ seat.id }}" value="{{ seat.id }}" {% if seat.booking_status %}disabled{% endif %} required>
+      <label class="btn btn-outline-secondary" for="seat-{{ seat.id }}">{{ seat.seat_number }}</label>
+    </div>
+    {% empty %}
+    <p class="text-muted">No seats have been set up yet.</p>
+    {% endfor %}
+  </div>
+
+  <div class="text-center">
+    <button type="submit" class="btn btn-primary btn-lg">Confirm booking</button>
+    <a href="{% url 'movie_list' %}" class="btn btn-link">Back to movies</a>
+  </div>
+</form>
+{% endblock %}
