@@ -57,12 +57,12 @@ homework2/movie_theater_booking/
 ## Local setup
 
 ```bash
-python3 -m venv myenv --system-site-packages
+python -m venv myenv
 source myenv/bin/activate
 pip install -r requirements.txt
-python3 manage.py migrate
-python3 manage.py createsuperuser 
-python3 manage.py runserver 0.0.0.0:3000
+python manage.py migrate
+python manage.py createsuperuser 
+python manage.py runserver 0.0.0.0:3000
 ```
 
 ## API endpoints
