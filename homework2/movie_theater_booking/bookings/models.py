@@ -11,7 +11,7 @@ class Movie(models.Model):
         return self.title
 
 class Seat(models.Model):
-    seat_number = models.CharField(max_length=5)
+    seat_number = models.CharField(max_length=5, unique = True)
     booking_status = models.BooleanField(default=False)
 
     def __str__(self):
