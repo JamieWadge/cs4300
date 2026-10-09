@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/6.1/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -25,7 +26,7 @@ SECRET_KEY = 'django-insecure-75*tbbq_^$f1lcmzhji1*=fvn%d1f^fcp1s272r2iq$qc6qnx3
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [".devedu.io", "localhost", "127.0.0.1"]
+ALLOWED_HOSTS = [".devedu.io", "localhost", "127.0.0.1", ".onrender.com"]
 
 
 # Application definition
@@ -131,3 +132,14 @@ MAILERS = {
 CSRF_TRUSTED_ORIGINS = [
     'https://app-snappyfalcon1394-28.lab.devedu.io',
 ]
+
+LOGIN_URL = "login"
+LOGIN_REDIRECT_URL = "movie_list"
+LOGOUT_REDIRECT_URL = "movie_list"
+
+REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        "rest_framework.authentication.SessionAuthentication",  # browsable API
+        "rest_framework.authentication.BasicAuthentication",    # curl / tests
+    ],
+}
