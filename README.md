@@ -63,7 +63,7 @@ python3 -m venv myenv --system-site-packages
 source myenv/bin/activate
 pip install -r requirements.txt
 python3 manage.py migrate
-python3 manage.py createsuperuser    # optional: admin account
+python3 manage.py createsuperuser 
 python3 manage.py runserver 0.0.0.0:3000
 ```
 
@@ -81,9 +81,9 @@ python3 manage.py runserver 0.0.0.0:3000
 ## Running the tests
 
 ```bash
-python3 manage.py test                                  # unit and integration tests
-coverage run manage.py test && coverage report -m       # coverage (target: 80%+)
-python3 manage.py behave                                # Behave BDD tests
+python3 manage.py test
+coverage run manage.py test && coverage report -m
+python3 manage.py behave
 ```
 
 ## AI usage
